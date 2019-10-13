@@ -30,19 +30,19 @@ export default class index extends Component {
           <OptionsContainer>
             <Option>
               <Icon name="comment" size={38} color="#fff" />
-              <OptionTitle>Enviar Mensagem</OptionTitle>
+              <OptionTitle>Enviar{"\n"}Mensagem</OptionTitle>
             </Option>
             <Option>
               <Icon name="microphone" size={38} color="#fff" />
-              <OptionTitle>Enviar Áudio</OptionTitle>
+              <OptionTitle>Enviar{"\n"}Áudio</OptionTitle>
             </Option>
             <Option>
               <Icon name="camera" size={38} color="#fff" />
-              <OptionTitle>Enviar Foto</OptionTitle>
+              <OptionTitle>Enviar{"\n"}Foto</OptionTitle>
             </Option>
             <Option>
               <Icon name="phone" size={38} color="#fff" />
-              <OptionTitle>Ligar</OptionTitle>
+              <OptionTitle>Fazer uma{"\n"}Ligação</OptionTitle>
             </Option>
           </OptionsContainer>
         </Body>
