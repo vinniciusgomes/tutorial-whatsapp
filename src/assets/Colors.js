@@ -7,6 +7,6 @@ const colors = {
   blue: '#34b7f1',
   chatBg: '#ece5dd',
   title: '#55636b',
-  text: '#4b4b4b',
+  text: '#5c5c5c',
 };
 export default colors;

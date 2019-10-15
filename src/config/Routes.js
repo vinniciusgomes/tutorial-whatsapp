@@ -1,16 +1,20 @@
-import { createSwitchNavigator, createAppContainer } from "react-navigation";
+import {createSwitchNavigator, createAppContainer} from 'react-navigation';
 
-import MainScreen from "~/screens/Main";
+import MainScreen from '~/screens/Main';
+import EnvioMensagem from '~/screens/EnvioMensagem';
 
 const AppNavigator = createSwitchNavigator(
   {
     Main: {
-      screen: MainScreen
-    }
+      screen: MainScreen,
+    },
+    EnvioMensagem: {
+      screen: EnvioMensagem,
+    },
   },
   {
-    initialRouteName: "Main"
-  }
+    initialRouteName: 'EnvioMensagem',
+  },
 );
 
 export default createAppContainer(AppNavigator);
