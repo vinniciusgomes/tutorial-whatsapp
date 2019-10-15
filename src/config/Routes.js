@@ -13,7 +13,7 @@ const AppNavigator = createSwitchNavigator(
     },
   },
   {
-    initialRouteName: 'EnvioMensagem',
+    initialRouteName: 'Main',
   },
 );
 
