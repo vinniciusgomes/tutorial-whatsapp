@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import {StatusBar} from 'react-native';
+import {StatusBar, Platform} from 'react-native';
 import {
   Container,
   Header,
@@ -30,19 +30,21 @@ export default class index extends Component {
           <OptionsContainer>
             <Option>
               <Icon name="comment" size={38} color="#fff" />
-              <OptionTitle>Enviar{"\n"}Mensagem</OptionTitle>
+              <OptionTitle>Enviar{'\n'}Mensagem</OptionTitle>
             </Option>
             <Option>
               <Icon name="microphone" size={38} color="#fff" />
-              <OptionTitle>Enviar{"\n"}Áudio</OptionTitle>
+              <OptionTitle>Enviar{'\n'}Áudio</OptionTitle>
             </Option>
+          </OptionsContainer>
+          <OptionsContainer>
             <Option>
               <Icon name="camera" size={38} color="#fff" />
-              <OptionTitle>Enviar{"\n"}Foto</OptionTitle>
+              <OptionTitle>Enviar{'\n'}Foto</OptionTitle>
             </Option>
             <Option>
               <Icon name="phone" size={38} color="#fff" />
-              <OptionTitle>Fazer uma{"\n"}Ligação</OptionTitle>
+              <OptionTitle>Fazer uma{'\n'}Ligação</OptionTitle>
             </Option>
           </OptionsContainer>
         </Body>
