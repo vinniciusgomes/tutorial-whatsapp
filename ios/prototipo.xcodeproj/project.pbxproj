@@ -5,8 +5,10 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* prototipoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* prototipoTests.m */; };
+		0D1853150A7A1671EEF27719 /* libPods-prototipoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55DD5CA1978B25ACCB97D48C /* libPods-prototipoTests.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -43,6 +45,7 @@
 		00E356EE1AD99517003FC87E /* prototipoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = prototipoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* prototipoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = prototipoTests.m; sourceTree = "<group>"; };
+
 		0388103269F18DD01DEEFB75 /* libPods-prototipoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-prototipoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07F961A680F5B00A75B9A /* prototipo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = prototipo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = prototipo/AppDelegate.h; sourceTree = "<group>"; };
@@ -54,6 +57,7 @@
 		18B47E5386B2B6658A21A05F /* libPods-prototipo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-prototipo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E47B1E0B4A5D006451C7 /* prototipo-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "prototipo-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* prototipo-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "prototipo-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+
 		31C21AB31ECA5476F7C29D0C /* Pods-prototipo-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-prototipo-tvOS.release.xcconfig"; path = "Target Support Files/Pods-prototipo-tvOS/Pods-prototipo-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		382358C1F93EE744B442C7FA /* Pods-prototipo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-prototipo.release.xcconfig"; path = "Target Support Files/Pods-prototipo/Pods-prototipo.release.xcconfig"; sourceTree = "<group>"; };
 		6CACF6354159E2413A6AF5B8 /* Pods-prototipo-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-prototipo-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-prototipo-tvOSTests/Pods-prototipo-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -66,6 +70,7 @@
 		EAAE0B22D8838BF09A8C19D4 /* Pods-prototipo-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-prototipo-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-prototipo-tvOSTests/Pods-prototipo-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
+
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +124,21 @@
 				00E356F11AD99517003FC87E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0A766E2AF654E72527D1F961 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3D6D25F3720881C3ECA2F5EA /* Pods-prototipo.debug.xcconfig */,
+				00F7F98BB7347585F3B67053 /* Pods-prototipo.release.xcconfig */,
+				8A8BC3E7A5EC759037735D4F /* Pods-prototipo-tvOS.debug.xcconfig */,
+				FEF679FD46CA941DE2A9BC06 /* Pods-prototipo-tvOS.release.xcconfig */,
+				FCD065AADECF8AE36C4BE871 /* Pods-prototipo-tvOSTests.debug.xcconfig */,
+				EEFFC50B08ADF510E81CD33B /* Pods-prototipo-tvOSTests.release.xcconfig */,
+				38BC8F6E63ED8B84DE3065BD /* Pods-prototipoTests.debug.xcconfig */,
+				9B44ED9B07AA94B45C744DE0 /* Pods-prototipoTests.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		13B07FAE1A68108700A75B9A /* prototipo */ = {
@@ -317,6 +337,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -873,7 +894,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -919,7 +940,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
