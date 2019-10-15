@@ -22,6 +22,7 @@ export const Title = styled.Text`
 
 export const Body = styled.View`
   flex: 1;
+  width: 100%;
   padding: 20px;
 `;
 
@@ -39,6 +40,8 @@ export const BodyTitle = styled.Text`
 export const OptionsContainer = styled.View`
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
 `;
 
 export const Option = styled.TouchableOpacity`
@@ -47,7 +50,6 @@ export const Option = styled.TouchableOpacity`
   border-radius: 10;
   margin-top: 15px;
   margin-bottom: 15px;
-  margin-right: 40px;
   width: 120px;
   height: 120px;
   justify-content: center;
