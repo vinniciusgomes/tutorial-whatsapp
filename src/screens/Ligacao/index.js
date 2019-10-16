@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {StatusBar} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import {
   Container,
   Header,
@@ -9,8 +10,9 @@ import {
   UserPhoto,
   ActionsButtons,
   ActionButton,
-  HangUpContainer,
-  HangUp,
+  CallEndContainer,
+  CallEnd,
+  HeaderText,
 } from './styles';
 
 export default class Ligacao extends Component {
@@ -18,20 +20,31 @@ export default class Ligacao extends Component {
     return (
       <Container>
         <StatusBar barStyle="light-content" />
-        <Header></Header>
+        <Header>
+          <Icon size={30} style={{marginLeft: -20}} color="white" name="navigate-before" />
+          <HeaderText>LIGAÇÃO DE ÁUDIO DO WHATSAPP</HeaderText>
+        </Header>
         <UserInfos>
           <UserName>Vinnicius Gomes</UserName>
           <UserPhone>ligando para +55 12 99205-0829...</UserPhone>
           <UserPhoto />
         </UserInfos>
         <ActionsButtons>
-          <ActionButton />
-          <ActionButton />
-          <ActionButton />
+          <ActionButton>
+            <Icon size={40} name="volume-up" />
+          </ActionButton>
+          <ActionButton>
+            <Icon size={40} name="videocam" />
+          </ActionButton>
+          <ActionButton>
+            <Icon size={40} name="mic-off" />
+          </ActionButton>
         </ActionsButtons>
-        <HangUpContainer>
-          <HangUp />
-        </HangUpContainer>
+        <CallEndContainer>
+          <CallEnd>
+            <Icon size={40} color="white" name="call-end" />
+          </CallEnd>
+        </CallEndContainer>
       </Container>
     );
   }

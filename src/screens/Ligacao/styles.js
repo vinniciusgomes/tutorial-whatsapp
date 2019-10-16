@@ -8,21 +8,25 @@ export const Container = styled.View`
 `;
 
 export const Header = styled.View`
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  margin-top: 30px;
+  flex-direction: row;
+  margin-top: 10px;
 `;
 
 export const HeaderText = styled.Text`
   color: ${colors.white};
+  font-weight: 400;
+  margin-left: 15%;
 `;
 
 export const UserInfos = styled.View`
   align-items: center;
+  margin-top: 20px;
 `;
 
 export const UserName = styled.Text`
-  font-size: 24px;
+  font-size: 26px;
   font-weight: 500;
   color: ${colors.white};
 `;
@@ -35,9 +39,9 @@ export const UserPhone = styled.Text`
 `;
 
 export const UserPhoto = styled.View`
-  width: 200px;
-  height: 200px;
-  border-radius: 100px;
+  width: 220px;
+  height: 220px;
+  border-radius: 110px;
   margin-top: 50px;
   background-color: ${colors.white};
 `;
@@ -45,7 +49,7 @@ export const UserPhoto = styled.View`
 export const ActionsButtons = styled.View`
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   margin-top: 50px;
 `;
 
@@ -53,17 +57,22 @@ export const ActionButton = styled.View`
   width: 70px;
   height: 70px;
   border-radius: 35px;
+  margin: 0px 15px 0px 15px;
+  justify-content: center;
+  align-items: center;
   background-color: ${colors.white};
 `;
 
-export const HangUpContainer = styled.View`
+export const CallEndContainer = styled.View`
   align-items: center;
   margin-top: 30px;
 `;
 
-export const HangUp = styled.View`
+export const CallEnd = styled.View`
   width: 70px;
   height: 70px;
   border-radius: 35px;
-  background-color: ${colors.white};
+  justify-content: center;
+  align-items: center;
+  background-color: ${colors.red};
 `;
