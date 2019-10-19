@@ -21,7 +21,7 @@ const AppNavigator = createSwitchNavigator(
     },
   },
   {
-    initialRouteName: 'ListaMensagens',
+    initialRouteName: 'Main',
   },
 );
 
