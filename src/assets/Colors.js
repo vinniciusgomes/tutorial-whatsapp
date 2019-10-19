@@ -10,5 +10,6 @@ const colors = {
   chatBg: '#ece5dd',
   title: '#55636b',
   text: '#5c5c5c',
+  nativeBlue: '#317df6'
 };
 export default colors;
