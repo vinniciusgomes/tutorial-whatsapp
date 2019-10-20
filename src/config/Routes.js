@@ -25,7 +25,7 @@ const AppNavigator = createSwitchNavigator(
     },
   },
   {
-    initialRouteName: 'EnvioMensagem',
+    initialRouteName: 'ListaMensagens',
   },
 );
 
