@@ -19,6 +19,7 @@ export default class SentArea extends Component {
 
     this.state = {
       text: '',
+      numOfLinesCompany: 0,
     };
   }
 
@@ -47,9 +48,11 @@ export default class SentArea extends Component {
           <Attachment>
             <Icon name="attachment" size={28} color={colors.text} />
           </Attachment>
-          <Attachment>
-            <Icon name="camera" size={28} color={colors.text} />
-          </Attachment>
+          {this.state.text.trim() === '' ? (
+            <Attachment>
+              <Icon name="camera" size={28} color={colors.text} />
+            </Attachment>
+          ) : null}
         </Message>
         {this.state.text.trim() === '' ? (
           <ActionButton>

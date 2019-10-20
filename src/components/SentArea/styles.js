@@ -3,15 +3,18 @@ import colors from '~/assets/Colors';
 
 export const Container = styled.View`
   flex-direction: row;
+  align-items: flex-end;
 `;
 
 export const Message = styled.View`
   flex: 1;
   flex-direction: row;
   background-color: ${colors.white};
-  padding: 0px 15px;
-  border-radius: 100;
+  padding: 10px 15px;
   align-items: center;
+  border-radius: 25;
+  max-height: 150px;
+  align-items: flex-end;
 `;
 
 export const Input = styled.TextInput`
@@ -35,5 +38,7 @@ export const ActionButton = styled.TouchableOpacity`
   align-items: center;
   padding: 12px;
   margin-left: 10px;
-  border-radius: 100;
+  width: 50px;
+  height: 50px;
+  border-radius: 25;
 `;
