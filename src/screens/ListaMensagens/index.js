@@ -1,46 +1,56 @@
 import React, {Component} from 'react';
+import {StatusBar} from 'react-native';
 import {Header, Left, Button, Icon, Right, Body, Title} from 'native-base';
 
 import {
   Container,
-  SearchBarContainer,
-  SearchBar,
-  EditButton,
   ChatsContainer,
-  ChatRow,
+  HeaderText,
+  Row,
   ChatPhoto,
-  ChatText,
+  ChatTime,
+  ChatRow,
   ChatBottomBorder,
+  ChatMessage,
+  UserName,
+  Message,
+  Hr,
 } from './styles';
 
 export default class ListaMensagens extends Component {
   render() {
     return (
       <Container>
-        <Header>
+        <StatusBar backgroundColor="#054c44" />
+        <Header style={{backgroundColor: '#075e55'}}>
           <Left>
-            <Button transparent>
-              <EditButton>Editar</EditButton>
-            </Button>
+            <HeaderText>WhatsApp</HeaderText>
           </Left>
-          <Body>
-            <Title>Conversas</Title>
-          </Body>
+          <Body />
           <Right>
-            <Button transparent>
-              <Icon name="menu" />
-            </Button>
+            <Icon style={{color: '#FFFFFF', marginRight: 20}} name="ios-search" />
+            <Icon style={{color: '#FFFFFF', marginRight: 10}} name="md-more" />
           </Right>
         </Header>
-        <SearchBarContainer>
-          <SearchBar placeholder="Buscar"></SearchBar>
-        </SearchBarContainer>
         <ChatsContainer>
-          <ChatRow>
+          <Row>
             <ChatPhoto />
-            <ChatText>Teste</ChatText>
-          </ChatRow>
+            <ChatRow>
+              <ChatMessage>
+                <UserName>Vinnicius Gomes</UserName>
+                <Message>
+                  <Icon
+                    style={{color: '#c4c4c6', fontSize: 15}}
+                    name="md-done-all"
+                  />{' '}
+                  Teste
+                </Message>
+              </ChatMessage>
+              <ChatTime>10:30</ChatTime>
+            </ChatRow>
+          </Row>
           <ChatBottomBorder />
+          <Hr />
         </ChatsContainer>
       </Container>
     );

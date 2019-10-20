@@ -29,7 +29,7 @@ const AppNavigator = createSwitchNavigator(
     },
   },
   {
-    initialRouteName: 'VisualizarFoto',
+    initialRouteName: 'ListaMensagens',
   },
 );
 

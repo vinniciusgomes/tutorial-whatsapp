@@ -14,8 +14,9 @@ export const Header = styled.View`
 `;
 
 export const HeaderText = styled.Text`
-  color: ${colors.black};
-  font-weight: 400;
+  color: ${colors.white};
+  font-weight: 700;
+  font-size: 14px;
 `;
 
 export const SearchBarContainer = styled.View`
@@ -44,22 +45,29 @@ export const ChatsContainer = styled.View`
   padding: 20px;
 `;
 
-export const ChatRow = styled.View`
+export const Row = styled.View`
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
 `;
 
 export const ChatPhoto = styled.View`
   width: 60px;
   height: 60px;
   border-radius: 30px;
+  margin-right: 20px;
   background-color: ${colors.black};
 `;
 
-export const ChatText = styled.Text`
+export const ChatTime = styled.Text`
   color: ${colors.black};
-  font-size: 17px;
+  font-size: 13px;
+`;
+
+export const ChatRow = styled.View`
+  width: 80%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 `;
 
 export const ChatBottomBorder = styled.View`
@@ -69,3 +77,24 @@ export const ChatBottomBorder = styled.View`
   margin-right: -20px !important;
   margin-top: 20px;
 `;
+
+export const UserName = styled.Text`
+  font-weight: 700;
+  font-size: 17px;
+`;
+
+export const Message = styled.Text`
+  font-weight: 100;
+  font-size: 14px;
+  color: #797979;
+`;
+
+export const Hr = styled.View`
+  width: 100%;
+  height: 1px;
+  margin-left: 20%;
+  margin-top: 0px;
+  background-color: #eaeeed;
+`;
+
+export const ChatMessage = styled.View``;
