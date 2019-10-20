@@ -12,7 +12,7 @@ export const Body = styled.View`
   background-color: ${colors.chatBg};
 `;
 
-export const ChatArea = styled.View`
+export const ChatArea = styled.ScrollView`
   flex: 1;
   padding: 5px;
 `;
