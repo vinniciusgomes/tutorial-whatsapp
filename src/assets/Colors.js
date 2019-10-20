@@ -9,7 +9,8 @@ const colors = {
   red: '#ff3a31',
   chatBg: '#ece5dd',
   title: '#55636b',
-  text: '#5c5c5c',
-  nativeBlue: '#317df6'
+  text: '#8c8c8c',
+  nativeBlue: '#317df6',
+  chatBubble: '#dcf8c6',
 };
 export default colors;
