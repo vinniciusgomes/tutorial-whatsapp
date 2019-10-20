@@ -33,7 +33,7 @@ export const ActionButton = styled.TouchableOpacity`
   background-color: ${colors.darkTeal};
   justify-content: center;
   align-items: center;
-  padding: 10px;
+  padding: 12px;
   margin-left: 10px;
   border-radius: 100;
 `;
