@@ -6,6 +6,7 @@ import NovaConversa from '~/screens/NovaConversa';
 import Ligacao from '~/screens/Ligacao';
 import ListaMensagens from '~/screens/ListaMensagens';
 import VisualizarFoto from '~/screens/VisualizarFoto';
+import Camera from '~/screens/Camera';
 
 const AppNavigator = createSwitchNavigator(
   {
@@ -27,9 +28,12 @@ const AppNavigator = createSwitchNavigator(
     VisualizarFoto: {
       screen: VisualizarFoto,
     },
+    Camera: {
+      screen: Camera,
+    },
   },
   {
-    initialRouteName: 'EnvioMensagem',
+    initialRouteName: 'Camera',
   },
 );
 
