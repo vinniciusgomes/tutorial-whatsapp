@@ -3,7 +3,7 @@ import colors from '~/assets/Colors';
 
 export const Container = styled.View`
   flex: 1;
-  background-color: ${colors.black};
+  background-color: #000000;
   justify-content: space-between;
 `;
 
@@ -21,23 +21,23 @@ export const UserPhoto = styled.View`
 
 export const ImageContainer = styled.View`
   width: 100%;
-  height: 80%;
-  margin-top: 5%;
-  background-color: ${colors.white};
+  height: 100%;
 `;
 
 export const SentAreaContainer = styled.View`
   flex-direction: row;
+  height: 60px;
   align-items: center;
-  justify-content: space-between;
-  margin: 0px 20px 0px 20px;
+  padding: 0px 20px 0px 20px;
+  background-color: #000000;
+  opacity: 0.8;
 `;
 
 export const SentButton = styled.View`
-  width: 60px;
-  height: 60px;
-  margin-top: -50px;
-  border-radius: 30px;
+  width: 65px;
+  height: 65px;
+  margin-top: -60px;
+  border-radius: 32.5px;
   align-items: center;
   justify-content: center;
   background-color: ${colors.teal};
@@ -55,7 +55,13 @@ export const AddDescription = styled.TextInput`
 `;
 
 export const Separator = styled.View`
-    width: 1;
-    height: 100%;
-    background-color: ${colors.white};
+  width: 1;
+  height: 100%;
+  background-color: ${colors.white};
+`;
+
+export const Image = styled.ImageBackground`
+  flex: 1;
+  height: 100%;
+  justify-content: space-between;
 `;
