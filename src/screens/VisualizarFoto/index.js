@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Image} from 'react-native';
 import {Header, Left, Button, Icon, Right, Body} from 'native-base';
 
 import colors from '~/assets/Colors';
@@ -10,11 +11,16 @@ import {
   SentButton,
   AddNewImageContainer,
   AddDescription,
-  Separator
+  Separator,
 } from './styles';
 
 export default class VisualizarFoto extends Component {
+  componentDidMount() {
+    alert();
+  }
   render() {
+    const imageUri = this.props.navigation.getParam('imageUri');
+    console.log(imageUri);
     return (
       <Container>
         <Header style={{backgroundColor: '#1d1d1d', border: 0}}>
@@ -46,7 +52,7 @@ export default class VisualizarFoto extends Component {
             </Button>
           </Right>
         </Header>
-        <ImageContainer />
+        <ImageContainer></ImageContainer>
         <SentAreaContainer>
           <AddNewImageContainer>
             <Icon style={{color: colors.white, marngin: 20}} name="ios-image" />

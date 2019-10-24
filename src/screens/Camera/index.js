@@ -16,8 +16,9 @@ export default class App extends Component {
     if (this.camera) {
       const options = {quality: 1, base64: true};
       const data = await this.camera.takePictureAsync(options);
-
-      alert(data.uri);
+      this.props.navigation.navigate('VisualizarFoto', {
+        imageUri: data.uri,
+      });
     }
   };
 
@@ -38,11 +39,19 @@ export default class App extends Component {
           }>
           <ButtonContainer>
             <Flash>
-              <Icon style={{ color: "#FFFFFF", fontSize: 28 }} name="flash" type="MaterialCommunityIcons" />
+              <Icon
+                style={{color: '#FFFFFF', fontSize: 28}}
+                name="flash"
+                type="MaterialCommunityIcons"
+              />
             </Flash>
             <CaptureButton onPress={this.takePicture} />
             <ChangeCamera>
-              <Icon style={{ color: "#FFFFFF", fontSize: 28 }} name="camera-party-mode" type="MaterialCommunityIcons" />
+              <Icon
+                style={{color: '#FFFFFF', fontSize: 28}}
+                name="camera-party-mode"
+                type="MaterialCommunityIcons"
+              />
             </ChangeCamera>
           </ButtonContainer>
         </RNCamera>
