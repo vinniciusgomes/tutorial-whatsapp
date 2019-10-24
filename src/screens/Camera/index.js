@@ -17,7 +17,7 @@ export default class App extends Component {
       const options = {quality: 1, base64: true};
       const data = await this.camera.takePictureAsync(options);
       this.props.navigation.navigate('VisualizarFoto', {
-        imageUri: data.uri,
+        imageUri: data.base64,
       });
     }
   };
