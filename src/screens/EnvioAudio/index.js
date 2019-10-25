@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {StatusBar} from 'react-native';
-
 import {Container, Body, ChatArea} from './styles';
 
 import Header from '~/components/Header';

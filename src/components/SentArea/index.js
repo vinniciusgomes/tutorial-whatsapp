@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {Text} from 'react-native';
+import {Text, PermissionsAndroid} from 'react-native';
+import {Player, Recorder} from '@react-native-community/audio-toolkit';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import colors from '~/assets/Colors';
@@ -20,11 +21,38 @@ export default class SentArea extends Component {
     this.state = {
       text: '',
       numOfLinesCompany: 0,
+      recording: false,
     };
   }
 
   _changeText(text) {
     this.setState({text});
+  }
+
+  async recorderFunc() {
+    try{
+      const granted = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.RECORD_AUDIO);
+
+      if(granted === PermissionsAndroid.RESULTS.GRANTED){
+        if(!this.state.recording){
+          this.recorder = new Recorder('data/user/0/com.prototipo/audio/music2.acc');
+          this.recorder.record();
+          this.setState({recording: true});
+          console.log('gravando');
+        }else{
+          this.recorder.stop(() => {
+            this.audio = new Player('data/user/0/com.prototipo/audio/music2.acc');
+            this.audio.play();
+            this.setState({recording: false});
+            console.log('fim gravar');
+          });
+        }
+      }else{
+        console.log('nao permitido');
+      }
+    }catch(err){
+      console.log(err);
+    }
   }
 
   render() {
@@ -55,7 +83,10 @@ export default class SentArea extends Component {
           ) : null}
         </Message>
         {this.state.text.trim() === '' ? (
-          <ActionButton>
+          <ActionButton
+            onPress={() => {
+              this.recorderFunc();
+            }}>
             <Icon name="microphone" size={22} color={colors.white} />
           </ActionButton>
         ) : (

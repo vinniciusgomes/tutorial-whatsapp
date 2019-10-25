@@ -15,9 +15,6 @@ import {
 } from './styles';
 
 export default class VisualizarFoto extends Component {
-  componentDidMount() {
-    alert();
-  }
   render() {
     const imageUri = this.props.navigation.getParam('imageUri');
     console.log(imageUri);
@@ -52,7 +49,9 @@ export default class VisualizarFoto extends Component {
             </Button>
           </Right>
         </Header>
-        <ImageContainer></ImageContainer>
+        <ImageContainer>
+          <Image source={{uri: `data:image/jpg;base64,${imageUri}`}} />
+        </ImageContainer>
         <SentAreaContainer>
           <AddNewImageContainer>
             <Icon style={{color: colors.white, marngin: 20}} name="ios-image" />
