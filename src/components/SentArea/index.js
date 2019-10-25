@@ -31,18 +31,22 @@ export default class SentArea extends Component {
 
   async recorderFunc() {
     try{
-      const granted = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.RECORD_AUDIO);
+      const granted = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE);
 
       if(granted === PermissionsAndroid.RESULTS.GRANTED){
         if(!this.state.recording){
-          this.recorder = new Recorder('data/user/0/com.prototipo/audio/music2.acc');
-          this.recorder.record();
-          this.setState({recording: true});
-          console.log('gravando');
+          this.recorder = new Recorder('file:///sdcard/music2.acc');
+          this.recorder.record((err) => {
+            console.log(err)
+            this.setState({recording: true});
+            console.log('gravando');
+          });
         }else{
           this.recorder.stop(() => {
-            this.audio = new Player('data/user/0/com.prototipo/audio/music2.acc');
-            this.audio.play();
+            this.audio = new Player('file:///sdcard/music2.acc');
+            this.audio.play((err) => {
+              console.log(err);
+            });
             this.setState({recording: false});
             console.log('fim gravar');
           });
