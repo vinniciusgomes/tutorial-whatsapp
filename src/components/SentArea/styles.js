@@ -46,3 +46,25 @@ export const ActionButton = styled.TouchableOpacity`
   height: 50px;
   border-radius: 25;
 `;
+
+export const TimerContainer = styled.View`
+  flex: 1;
+  flex-direction: row;
+`;
+
+export const Timer = styled.Text`
+  font-size: 20px;
+  color: ${colors.text};
+`;
+
+export const CancelButton = styled.TouchableOpacity`
+  align-self: center;
+`;
+
+export const CancelText = styled.Text`
+  font-size: 14px;
+  font-weight: 700;
+  color: ${colors.cancelRed};
+  align-self: center;
+  margin-right: 5px;
+`;

@@ -7,6 +7,7 @@ const colors = {
   green: '#25d366',
   blue: '#34b7f1',
   red: '#ff3a31',
+  cancelRed: '#d9454d',
   chatBg: '#ece5dd',
   title: '#55636b',
   text: '#8c8c8c',
