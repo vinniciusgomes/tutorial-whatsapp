@@ -2,6 +2,7 @@ import {createSwitchNavigator, createAppContainer} from 'react-navigation';
 
 import MainScreen from '~/screens/Main';
 import EnvioMensagem from '~/screens/EnvioMensagem';
+import EnvioAudio from '~/screens/EnvioAudio';
 import NovaConversa from '~/screens/NovaConversa';
 import Ligacao from '~/screens/Ligacao';
 import ListaMensagens from '~/screens/ListaMensagens';
@@ -15,6 +16,9 @@ const AppNavigator = createSwitchNavigator(
     },
     EnvioMensagem: {
       screen: EnvioMensagem,
+    },
+    EnvioAudio: {
+      screen: EnvioAudio,
     },
     NovaConversa: {
       screen: NovaConversa,
@@ -33,7 +37,7 @@ const AppNavigator = createSwitchNavigator(
     },
   },
   {
-    initialRouteName: 'Camera',
+    initialRouteName: 'EnvioAudio',
   },
 );
 
