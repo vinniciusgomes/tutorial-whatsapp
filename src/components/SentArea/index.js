@@ -11,6 +11,7 @@ import {
   Emoji,
   Attachment,
   ActionButton,
+  CameraButton,
   Input,
   CancelButton,
   CancelText,

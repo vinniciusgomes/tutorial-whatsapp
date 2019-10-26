@@ -32,6 +32,10 @@ export const Attachment = styled.TouchableOpacity`
   margin-left: 10px;
 `;
 
+export const CameraButton = styled.TouchableOpacity`
+  margin-left: 10px;
+`;
+
 export const ActionButton = styled.TouchableOpacity`
   background-color: ${colors.darkTeal};
   justify-content: center;
