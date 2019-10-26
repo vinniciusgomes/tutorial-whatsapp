@@ -27,3 +27,14 @@ export const Time = styled.Text`
   margin-left: 10px;
   margin-right: 5px;
 `;
+
+export const ImageContainer = styled.View`
+  flex: 1;
+  height: auto;
+`;
+
+export const Image = styled.ImageBackground`
+  flex: 1;
+  height: 250px;
+  width: auto;
+`;

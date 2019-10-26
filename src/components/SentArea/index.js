@@ -10,6 +10,7 @@ import {
   Emoji,
   Attachment,
   ActionButton,
+  CameraButton,
   Input,
 } from './styles';
 
@@ -49,9 +50,9 @@ export default class SentArea extends Component {
             <Icon name="attachment" size={28} color={colors.text} />
           </Attachment>
           {this.state.text.trim() === '' ? (
-            <Attachment>
+            <CameraButton onPress={this.props.onPress}>
               <Icon name="camera" size={28} color={colors.text} />
-            </Attachment>
+            </CameraButton>
           ) : null}
         </Message>
         {this.state.text.trim() === '' ? (

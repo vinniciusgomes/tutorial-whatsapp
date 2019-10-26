@@ -33,7 +33,7 @@ export const SentAreaContainer = styled.View`
   opacity: 0.8;
 `;
 
-export const SentButton = styled.View`
+export const SentButton = styled.TouchableOpacity`
   width: 65px;
   height: 65px;
   margin-top: -60px;

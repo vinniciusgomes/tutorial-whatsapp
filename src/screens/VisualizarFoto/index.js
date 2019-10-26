@@ -72,7 +72,12 @@ export default class VisualizarFoto extends Component {
                   placeholder="Adicione uma legenda..."
                 />
               </AddNewImageContainer>
-              <SentButton>
+              <SentButton
+                onPress={() =>
+                  this.props.navigation.navigate('EnvioFoto', {
+                    imageUri: imageUri,
+                  })
+                }>
                 <Icon style={{color: colors.white, fontSize: 35}} name="send" />
               </SentButton>
             </SentAreaContainer>
