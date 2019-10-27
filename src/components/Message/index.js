@@ -14,6 +14,7 @@ import {
   AudioContainer,
   Avatar,
   SliderContainer,
+  Duration,
 } from './styles';
 
 export default class Message extends Component {
@@ -29,18 +30,31 @@ export default class Message extends Component {
       this.player = new Player(`${this.props.content}`, {
         autoDestroy: false,
       }).prepare(() => {
+        this.setState({unformattedDuration: this.player.duration});
         let segundo = ((this.player.duration / 1000) % 60) <= 9 ? "0" + Math.floor(((this.player.duration / 1000) % 60)) : Math.floor((this.player.duration / 1000) % 60);
         let minutos = (this.player.duration / 1000) / 60;
         let minuto = Math.floor(minutos % 60) <= 9 ? "0" + Math.floor(minutos % 60) : Math.floor(minutos % 60);
         this.setState({duration: minuto + ':' + segundo});
       });
+
+      let progressInterval = setInterval(() => {
+        if (this.player) {
+          let currentProgress = this.player.currentTime;
+          if (isNaN(currentProgress)) {
+            currentProgress = 0;
+          }
+
+          if (currentProgress > 0) {
+            let segundo = ((currentProgress / 1000) % 60) <= 9 ? "0" + Math.floor(((currentProgress / 1000) % 60)) : Math.floor((currentProgress / 1000) % 60);
+            let minutos = (currentProgress / 1000) / 60;
+            let minuto = Math.floor(minutos % 60) <= 9 ? "0" + Math.floor(minutos % 60) : Math.floor(minutos % 60);
+            this.setState({duration: minuto + ':' + segundo});
+          }
+
+          this.setState({progress: currentProgress});
+        }
+      }, 100);
     }
-    // if (this.props.text) {
-    //   this.setState({messageType: 'text'});
-    // } else if (this.props.image) {
-    //   this.setState({messageType: 'image'});
-    // }
-    // console.log(this.props.image);
   }
 
   _play() {
@@ -61,6 +75,12 @@ export default class Message extends Component {
           this.setState({playing: false});
         }
       });
+    }
+  }
+
+  _seek(progress) {
+    if (this.player) {
+      this.player.seek(progress);
     }
   }
 
@@ -94,11 +114,18 @@ export default class Message extends Component {
             </TouchableOpacity>
             <SliderContainer>
               <Slider
+                style={{flex: 1, width: "100%"}}
+                value={this.state.progress}
                 minimumValue={0}
-                maximumValue={1}
-                minimumTrackTintColor="#FFFFFF"
-                maximumTrackTintColor="#000000"
+                maximumValue={this.state.unformattedDuration}
+                minimumTrackTintColor={colors.text}
+                maximumTrackTintColor={colors.text}
+                thumbTintColor={colors.text}
+                onSlidingComplete={value => {
+                  this._seek(value);
+                }}
               />
+              <Duration>{this.state.duration}</Duration>
             </SliderContainer>
           </AudioContainer>
         ) : null}
