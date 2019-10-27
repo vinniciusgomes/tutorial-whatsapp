@@ -15,12 +15,20 @@ export default class EnvioAudio extends Component {
     };
   }
 
-  sent = text => {
-    this.setState({messages: [...this.state.messages, text.trim()]});
+  sent = (content, type) => {
+    this.setState({
+      messages: [
+        ...this.state.messages,
+        {
+          content: content.trim(),
+          type: type,
+        },
+      ],
+    });
   };
 
-  avatar = require('~/assets/img/woman.jpeg');
   render() {
+    this.avatar = require('~/assets/img/woman.jpeg');
     return (
       <Container>
         {/* <StatusBar backgroundColor={colors.darkTeal} /> */}
@@ -28,7 +36,14 @@ export default class EnvioAudio extends Component {
         <Body>
           <ChatArea>
             {this.state.messages.map((message, index) => {
-              return <Message key={index} text={message} />;
+              return (
+                <Message
+                  key={index}
+                  content={message.content}
+                  type={message.type}
+                  avatar={this.avatar}
+                />
+              );
             })}
           </ChatArea>
           <SentArea sent={this.sent} />
