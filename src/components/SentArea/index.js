@@ -24,6 +24,7 @@ export default class SentArea extends Component {
     super(props);
     this.state = {
       text: '',
+      fileCounter: 1,
       numOfLinesCompany: 0,
       recording: false,
       pulse: true,
@@ -46,7 +47,10 @@ export default class SentArea extends Component {
 
       if (granted === PermissionsAndroid.RESULTS.GRANTED) {
         if (!this.state.recording) {
-          this.recorder = new Recorder('file:///sdcard/music2.acc');
+          this.setState({fileCounter: this.state.fileCounter + 1});
+          this.recorder = new Recorder(
+            'file:///sdcard/audio' + this.state.fileCounter + '.acc',
+          );
           this.recorder.record(() => {
             this.setState({recording: true});
             let timer = setInterval(() => {
@@ -62,16 +66,6 @@ export default class SentArea extends Component {
             }, 600);
             this.setState({pulseInterval: pulse});
           });
-        } else {
-          // this.recorder.stop(() => {
-          //   this.setState({pulse: true});
-          //   this.audio = new Player(
-          //     'file:///sdcard/prototipo/audio/music2.acc',
-          //   );
-          //   this.audio.play(() => {
-          //     this.setState({recording: false});
-          //   });
-          // });
         }
       }
     } catch (err) {
@@ -157,7 +151,7 @@ export default class SentArea extends Component {
             onPress={() => {
               this.state.recording ? this._cancelRecorder() : null;
               this.state.recording
-                ? this.props.sent('file:///sdcard/music2.acc', 'audio')
+                ? this.props.sent('file:///sdcard/audio' + this.state.fileCounter + '.acc', 'audio')
                 : this.props.sent(this.state.text, 'text');
               this.setState({text: ''});
             }}>
