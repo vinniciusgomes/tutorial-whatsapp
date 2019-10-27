@@ -55,3 +55,10 @@ export const Avatar = styled.Image`
 export const SliderContainer = styled.View`
   flex: 1;
 `;
+
+export const Duration = styled.Text`
+  font-size: 12px;
+  color: ${colors.text};
+  margin: 0;
+  margin-left: 15px;
+`;
