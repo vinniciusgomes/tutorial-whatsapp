@@ -38,3 +38,20 @@ export const Image = styled.ImageBackground`
   height: 250px;
   width: auto;
 `;
+
+export const AudioContainer = styled.View`
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const Avatar = styled.Image`
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  margin-right: 5px;
+`;
+
+export const SliderContainer = styled.View`
+  flex: 1;
+`;

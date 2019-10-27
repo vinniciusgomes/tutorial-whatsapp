@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {PermissionsAndroid} from 'react-native';
-import {Player, Recorder} from '@react-native-community/audio-toolkit';
+import {Recorder} from '@react-native-community/audio-toolkit';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import colors from '~/assets/Colors';
@@ -155,7 +155,10 @@ export default class SentArea extends Component {
         ) : (
           <ActionButton
             onPress={() => {
-              this.props.sent(this.state.text);
+              this.state.recording ? this._cancelRecorder() : null;
+              this.state.recording
+                ? this.props.sent('file:///sdcard/music2.acc', 'audio')
+                : this.props.sent(this.state.text, 'text');
               this.setState({text: ''});
             }}>
             <Icon name="send" size={22} color={colors.white} />
