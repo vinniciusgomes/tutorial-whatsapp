@@ -6,7 +6,7 @@ import Header from '~/components/Header';
 import SentArea from '~/components/SentArea';
 import Message from '~/components/Message';
 
-export default class EnvioMensagem extends Component {
+export default class EnvioAudio extends Component {
   constructor(props) {
     super(props);
     this.state = {
