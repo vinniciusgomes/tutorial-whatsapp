@@ -6,7 +6,7 @@ import Header from '~/components/Header';
 import SentArea from '~/components/SentArea';
 import Message from '~/components/Message';
 
-export default class EnvioMensagem extends Component {
+export default class EnvioFoto extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,12 +18,20 @@ export default class EnvioMensagem extends Component {
     const imageUri = this.props.navigation.getParam('imageUri');
     if (imageUri) {
       this.setState({imageUri});
-      this.sent(imageUri);
+      this.sent(imageUri, 'image');
     }
   }
 
-  sent = image => {
-    this.setState({messages: [...this.state.messages, image]});
+  sent = (content, type) => {
+    this.setState({
+      messages: [
+        ...this.state.messages,
+        {
+          content: content.trim(),
+          type: type,
+        },
+      ],
+    });
   };
 
   avatar = require('~/assets/img/woman.jpeg');
@@ -34,8 +42,15 @@ export default class EnvioMensagem extends Component {
         <Header name="Mina do Google" avatar={this.avatar} />
         <Body>
           <ChatArea>
-            {this.state.messages.map((image, index) => {
-              return <Message key={index} image={image} />;
+            {this.state.messages.map((message, index) => {
+              return (
+                <Message
+                  key={index}
+                  content={message.content}
+                  type={message.type}
+                  avatar={this.avatar}
+                />
+              );
             })}
           </ChatArea>
           <SentArea

@@ -26,14 +26,21 @@ export default class Message extends Component {
   }
 
   componentDidMount() {
+    console.log(this.props.type);
     if (this.props.type === 'audio') {
       this.player = new Player(`${this.props.content}`, {
         autoDestroy: false,
       }).prepare(() => {
         this.setState({unformattedDuration: this.player.duration});
-        let segundo = ((this.player.duration / 1000) % 60) <= 9 ? "0" + Math.floor(((this.player.duration / 1000) % 60)) : Math.floor((this.player.duration / 1000) % 60);
-        let minutos = (this.player.duration / 1000) / 60;
-        let minuto = Math.floor(minutos % 60) <= 9 ? "0" + Math.floor(minutos % 60) : Math.floor(minutos % 60);
+        let segundo =
+          (this.player.duration / 1000) % 60 <= 9
+            ? '0' + Math.floor((this.player.duration / 1000) % 60)
+            : Math.floor((this.player.duration / 1000) % 60);
+        let minutos = this.player.duration / 1000 / 60;
+        let minuto =
+          Math.floor(minutos % 60) <= 9
+            ? '0' + Math.floor(minutos % 60)
+            : Math.floor(minutos % 60);
         this.setState({duration: minuto + ':' + segundo});
       });
 
@@ -45,9 +52,15 @@ export default class Message extends Component {
           }
 
           if (currentProgress > 0) {
-            let segundo = ((currentProgress / 1000) % 60) <= 9 ? "0" + Math.floor(((currentProgress / 1000) % 60)) : Math.floor((currentProgress / 1000) % 60);
-            let minutos = (currentProgress / 1000) / 60;
-            let minuto = Math.floor(minutos % 60) <= 9 ? "0" + Math.floor(minutos % 60) : Math.floor(minutos % 60);
+            let segundo =
+              (currentProgress / 1000) % 60 <= 9
+                ? '0' + Math.floor((currentProgress / 1000) % 60)
+                : Math.floor((currentProgress / 1000) % 60);
+            let minutos = currentProgress / 1000 / 60;
+            let minuto =
+              Math.floor(minutos % 60) <= 9
+                ? '0' + Math.floor(minutos % 60)
+                : Math.floor(minutos % 60);
             this.setState({duration: minuto + ':' + segundo});
           }
 
@@ -95,7 +108,7 @@ export default class Message extends Component {
         {this.props.type === 'image' ? (
           <ImageContainer>
             <Image
-              source={{uri: `data:image/jpg;base64,${this.props.image}`}}
+              source={{uri: `data:image/jpg;base64,${this.props.content}`}}
             />
           </ImageContainer>
         ) : null}
@@ -114,7 +127,7 @@ export default class Message extends Component {
             </TouchableOpacity>
             <SliderContainer>
               <Slider
-                style={{flex: 1, width: "100%"}}
+                style={{flex: 1, width: '100%'}}
                 value={this.state.progress}
                 minimumValue={0}
                 maximumValue={this.state.unformattedDuration}
