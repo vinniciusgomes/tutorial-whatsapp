@@ -1,7 +1,18 @@
 import React, {Component} from 'react';
-import {StatusBar} from 'react-native';
+import {StatusBar, View, Text, Button, StyleSheet} from 'react-native';
+import Modal from 'react-native-modal';
 
-import {Container, Body, ChatArea} from './styles';
+import {
+  Container,
+  Body,
+  ChatArea,
+  ModalContainer,
+  ModalTitle,
+  ModalSubtitle,
+  ModalButtonContainer,
+  ModalImageContainer,
+  ModalImage,
+} from './styles';
 import Header from '~/components/Header';
 import SentArea from '~/components/SentArea';
 import Message from '~/components/Message';
@@ -11,8 +22,29 @@ export default class EnvioFoto extends Component {
     super(props);
     this.state = {
       messages: [],
+      visibleModal: null,
     };
   }
+
+  renderModalContent = (title, subtitle, textButton1, textButton2) => (
+    <ModalContainer>
+      <ModalTitle>{title}</ModalTitle>
+      <ModalSubtitle>{subtitle}</ModalSubtitle>
+      <ModalImageContainer>
+        <ModalImage source={require('~/assets/img/teste1.png')} />
+      </ModalImageContainer>
+      <ModalButtonContainer>
+        <Button
+          onPress={() => this.setState({visibleModal: null})}
+          title={textButton1}
+        />
+        <Button
+          onPress={() => this.setState({visibleModal: null})}
+          title={textButton2}
+        />
+      </ModalButtonContainer>
+    </ModalContainer>
+  );
 
   componentDidMount() {
     const imageUri = this.props.navigation.getParam('imageUri');
@@ -20,6 +52,7 @@ export default class EnvioFoto extends Component {
       this.setState({imageUri});
       this.sent(imageUri, 'image');
     }
+    this.setState({visibleModal: 'step1'});
   }
 
   sent = (content, type) => {
@@ -57,6 +90,9 @@ export default class EnvioFoto extends Component {
             onPress={() => this.props.navigation.navigate('Camera')}
             sent={this.sent}
           />
+          <Modal isVisible={this.state.visibleModal === 'step1'}>
+            {this.renderModalContent('Step 1', 'Teste', 'Close', 'Continuar')}
+          </Modal>
         </Body>
       </Container>
     );
