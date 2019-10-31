@@ -24,6 +24,7 @@ export default class EnvioAudio extends Component {
     this.state = {
       messages: [],
       visibleModal: null,
+      reproduzido: false,
     };
   }
 
@@ -61,10 +62,22 @@ export default class EnvioAudio extends Component {
   }
 
   modalFinal() {
-    if(this.state.visibleModal == null){
+    if (this.state.visibleModal == null) {
       return this.setState({visibleModal: 'step3'});
     }
   }
+
+  modalFinal2() {
+    if (this.state.visibleModal == 'none') {
+      return this.setState({visibleModal: 'step4'});
+    }
+  }
+
+  escutar = () => {
+    this.setState({reproduzido: true});
+    console.clear();
+    console.log('escutou');
+  };
 
   sent = (content, type) => {
     this.setState({
@@ -93,6 +106,7 @@ export default class EnvioAudio extends Component {
                   content={message.content}
                   type={message.type}
                   avatar={this.avatar}
+                  escutar={this.escutar}
                 />
               );
             })}
@@ -125,12 +139,23 @@ export default class EnvioAudio extends Component {
         {this.state.messages.length == 1 ? this.modalFinal() : null}
         <Modal isVisible={this.state.visibleModal === 'step3'}>
           {this.renderModalContent(
+            'Escutando seu áudio',
+            'Depois de ter enviado seu áudio você pode ouvi-lo tocando no botão de reprodução conforme a imagem abaixo.',
+            '',
+            'Escutar áudio',
+            '',
+            'none',
+          )}
+        </Modal>
+        {this.state.reproduzido ? this.modalFinal2() : null}
+        <Modal isVisible={this.state.visibleModal === 'step4'}>
+          {this.renderModalContent(
             'Parabéns',
-            'Agora você ja sabe enviar mensagens para seus amigos. Continue treinando ou volte para escolher novas funções.',
+            'Agora você ja sabe enviar um áudio para seus amigos e reproduzi-lo. Continue treinando ou volte para escolher novas funções.',
             'Voltar',
             'Continuar treinando',
             '',
-            'none',
+            '',
           )}
         </Modal>
       </Container>
