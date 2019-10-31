@@ -4,6 +4,7 @@ import MainScreen from '~/screens/Main';
 import EnvioMensagem from '~/screens/EnvioMensagem';
 import EnvioAudio from '~/screens/EnvioAudio';
 import NovaConversa from '~/screens/NovaConversa';
+import IniciarLigacao from '~/screens/IniciarLigacao';
 import Ligacao from '~/screens/Ligacao';
 import ListaMensagens from '~/screens/ListaMensagens';
 import VisualizarFoto from '~/screens/VisualizarFoto';
@@ -24,6 +25,9 @@ const AppNavigator = createSwitchNavigator(
     NovaConversa: {
       screen: NovaConversa,
     },
+    IniciarLigacao: {
+      screen: IniciarLigacao,
+    },
     Ligacao: {
       screen: Ligacao,
     },
@@ -41,7 +45,7 @@ const AppNavigator = createSwitchNavigator(
     },
   },
   {
-    initialRouteName: 'EnvioFoto',
+    initialRouteName: 'IniciarLigacao',
   },
 );
 
