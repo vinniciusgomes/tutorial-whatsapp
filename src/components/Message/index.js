@@ -80,12 +80,14 @@ export default class Message extends Component {
         })
         .on('ended', () => {
           this.setState({playing: false});
+          this.props.escutar();
           this.player.destroy();
         });
     } else {
       this.player.pause(err => {
         if (!err) {
           this.setState({playing: false});
+          this.props.escutar();
         }
       });
     }

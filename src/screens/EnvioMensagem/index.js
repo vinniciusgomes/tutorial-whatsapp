@@ -24,6 +24,7 @@ export default class EnvioMensagem extends Component {
     this.state = {
       messages: [],
       visibleModal: null,
+      reproduzido: false,
     };
   }
 
@@ -78,6 +79,12 @@ export default class EnvioMensagem extends Component {
     });
   };
 
+  escutar = () => {
+    this.setState({reproduzido: true});
+    console.clear();
+    console.log('escutou');
+  };
+
   avatar = require('~/assets/img/woman.jpeg');
   render() {
     return (
@@ -93,6 +100,7 @@ export default class EnvioMensagem extends Component {
                   content={message.content}
                   type={message.type}
                   avatar={this.avatar}
+                  escutar={() => this.escutar()}
                 />
               );
             })}
@@ -126,7 +134,18 @@ export default class EnvioMensagem extends Component {
         <Modal isVisible={this.state.visibleModal === 'step3'}>
           {this.renderModalContent(
             'Parabéns',
-            'Agora você ja sabe enviar mensagens para seus amigos. Continue treinando ou volte para escolher novas funções.',
+            'Agora você ja sabe enviar um áudio para seus amigos. Continue treinando ou volte para escolher novas funções.',
+            'Voltar',
+            'Continuar treinando',
+            '',
+            'none',
+          )}
+        </Modal>
+        {this.state.reproduzido ? this.modalFinal() : null}
+        <Modal isVisible={this.state.visibleModal === 'step3'}>
+          {this.renderModalContent(
+            'Parabéns',
+            'Agora você ja sabe enviar um áudio para seus amigos. Continue treinando ou volte para escolher novas funções.',
             'Voltar',
             'Continuar treinando',
             '',
