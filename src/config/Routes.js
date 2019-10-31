@@ -45,7 +45,7 @@ const AppNavigator = createSwitchNavigator(
     },
   },
   {
-    initialRouteName: 'NovaConversa',
+    initialRouteName: 'IniciarLigacao',
   },
 );
 
