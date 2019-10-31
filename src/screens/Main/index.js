@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import {StatusBar, Platform} from 'react-native';
+import {StatusBar} from 'react-native';
+import Modal from 'react-native-modal';
 import {
   Container,
   Header,
@@ -11,10 +12,46 @@ import {
   OptionsContainer,
   Option,
   OptionTitle,
+  ModalContainer,
+  ModalTitle,
+  ModalSubtitle,
+  ModalButtonContainer,
+  Button,
+  Text,
 } from './styles';
 import colors from '~/assets/Colors';
 
 export default class index extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visibleModal: null,
+    };
+  }
+
+  componentDidMount() {
+    this.setState({visibleModal: 'step1'});
+  }
+
+  renderModalContent(title, subtitle, textButton1, textButton2) {
+    return (
+      <ModalContainer>
+        <ModalTitle>{title}</ModalTitle>
+        <ModalSubtitle>{subtitle}</ModalSubtitle>
+        <ModalButtonContainer>
+          {textButton1 !== '' ? (
+            <Button onPress={() => this.setState({visibleModal: null})}>
+              <Text>{textButton1}</Text>
+            </Button>
+          ) : null}
+          <Button onPress={() => this.setState({visibleModal: null})}>
+            <Text>{textButton2}</Text>
+          </Button>
+        </ModalButtonContainer>
+      </ModalContainer>
+    );
+  }
+
   render() {
     return (
       <Container>
@@ -50,6 +87,14 @@ export default class index extends Component {
             </Option>
           </OptionsContainer>
         </Body>
+        <Modal isVisible={this.state.visibleModal === 'step1'}>
+          {this.renderModalContent(
+            'O que você deseja fazer?',
+            'Escolha uma das opções e aprenda como enviar mensagens, áudios e fotos a um amigo ou até mesmo realizar uma ligação.',
+            '',
+            'Vamos lá',
+          )}
+        </Modal>
       </Container>
     );
   }

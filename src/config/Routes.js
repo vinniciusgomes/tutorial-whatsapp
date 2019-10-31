@@ -41,7 +41,7 @@ const AppNavigator = createSwitchNavigator(
     },
   },
   {
-    initialRouteName: 'EnvioFoto',
+    initialRouteName: 'EnvioMensagem',
   },
 );
 
