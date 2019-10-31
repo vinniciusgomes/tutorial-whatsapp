@@ -46,6 +46,7 @@ export const ModalImageContainer = styled.View`
 
 export const ModalImage = styled.Image`
   width: 100%;
+  height: 50px;
 `;
 
 export const ModalButtonContainer = styled.View`

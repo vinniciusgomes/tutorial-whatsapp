@@ -18,6 +18,10 @@ import Header from '~/components/Header';
 import SentArea from '~/components/SentArea';
 import Message from '~/components/Message';
 
+import img1 from '~/assets/img/audio/step1.png';
+import img2 from '~/assets/img/audio/step2.png';
+import img3 from '~/assets/img/audio/step3.png';
+
 export default class EnvioAudio extends Component {
   constructor(props) {
     super(props);
@@ -42,9 +46,9 @@ export default class EnvioAudio extends Component {
       <ModalContainer>
         <ModalTitle>{title}</ModalTitle>
         <ModalSubtitle>{subtitle}</ModalSubtitle>
-        {source !== '' ? (
+        {source ? (
           <ModalImageContainer>
-            <ModalImage source='' />
+            <ModalImage source={source} />
           </ModalImageContainer>
         ) : null}
         <ModalButtonContainer>
@@ -119,10 +123,10 @@ export default class EnvioAudio extends Component {
         <Modal isVisible={this.state.visibleModal === 'step1'}>
           {this.renderModalContent(
             'Grave um áudio',
-            'Toque no botão de gravação, como na imagem abaixo, e comece a gravar um áudio para seu amigo. Toque em continuar para prosseguir.',
+            'Toque no botão de gravação, como na imagem abaixo, e comece a gravar um áudio para seu amigo.',
             '',
             'Continuar',
-            '~/assets/img/teste1.png',
+            img1,
             'step2',
           )}
         </Modal>
@@ -132,7 +136,7 @@ export default class EnvioAudio extends Component {
             'Após falar o que deseja, clique no botão de enviar para que seu amigo receba seu áudio.',
             '',
             'Vamos lá',
-            '~/assets/img/teste1.png',
+            img2,
             null,
           )}
         </Modal>
@@ -143,7 +147,7 @@ export default class EnvioAudio extends Component {
             'Depois de ter enviado seu áudio você pode ouvi-lo tocando no botão de reprodução conforme a imagem abaixo.',
             '',
             'Escutar áudio',
-            '',
+            img3,
             'none',
           )}
         </Modal>

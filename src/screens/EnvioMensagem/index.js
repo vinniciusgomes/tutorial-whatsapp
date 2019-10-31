@@ -18,6 +18,9 @@ import Header from '~/components/Header';
 import SentArea from '~/components/SentArea';
 import Message from '~/components/Message';
 
+import img1 from '~/assets/img/mensagem/step1.png';
+import img2 from '~/assets/img/mensagem/step2.png';
+
 export default class EnvioMensagem extends Component {
   constructor(props) {
     super(props);
@@ -41,9 +44,9 @@ export default class EnvioMensagem extends Component {
       <ModalContainer>
         <ModalTitle>{title}</ModalTitle>
         <ModalSubtitle>{subtitle}</ModalSubtitle>
-        {source !== '' ? (
+        {source ? (
           <ModalImageContainer>
-            <ModalImage source='' />
+            <ModalImage source={source} />
           </ModalImageContainer>
         ) : null}
         <ModalButtonContainer>
@@ -105,10 +108,10 @@ export default class EnvioMensagem extends Component {
         <Modal isVisible={this.state.visibleModal === 'step1'}>
           {this.renderModalContent(
             'Escreva sua mensagem',
-            'Clique em cima do espaço em branco, como na imagem abaixo, para aparecer o teclado e comece a digitar. Toque em continuar para prosseguir.',
+            'Clique em cima do espaço em branco, como na imagem abaixo, para aparecer o teclado e comece a digitar.',
             '',
             'Continuar',
-            '~/assets/img/teste1.png',
+            img1,
             'step2',
           )}
         </Modal>
@@ -118,7 +121,7 @@ export default class EnvioMensagem extends Component {
             'Após digitar a mensagem clique no botão de enviar para que seu amigo a receba.',
             '',
             'Vamos lá',
-            '~/assets/img/teste1.png',
+            img2,
             null,
           )}
         </Modal>
