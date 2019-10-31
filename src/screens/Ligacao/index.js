@@ -15,6 +15,8 @@ import {
   HeaderText,
 } from './styles';
 
+import avatar from '~/assets/img/woman.jpeg';
+
 export default class Ligacao extends Component {
   render() {
     return (
@@ -25,9 +27,9 @@ export default class Ligacao extends Component {
           <HeaderText>LIGAÇÃO DE ÁUDIO DO WHATSAPP</HeaderText>
         </Header>
         <UserInfos>
-          <UserName>Vinnicius Gomes</UserName>
-          <UserPhone>ligando para +55 12 99205-0829...</UserPhone>
-          <UserPhoto />
+          <UserName>Mina do Google</UserName>
+          <UserPhone>ligando para +55 99 99999-9999...</UserPhone>
+          <UserPhoto source={avatar} />
         </UserInfos>
         <ActionsButtons>
           <ActionButton>

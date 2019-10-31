@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import OcticonsIcon from 'react-native-vector-icons/Octicons';
+import Modal from 'react-native-modal';
 import colors from '~/assets/Colors';
 import {
   Container,
@@ -18,10 +19,53 @@ import {
   NewContact,
   NewContactAvatar,
   NewContactTitle,
+  ModalContainer,
+  ModalTitle,
+  ModalSubtitle,
+  ModalButtonContainer,
+  ModalImageContainer,
+  ModalImage,
+  Button,
+  Text,
 } from './styles';
 import Contact from '~/components/Contact';
 
 export default class NovaConversa extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visibleModal: null,
+    };
+  }
+
+  componentDidMount() {
+    this.setState({visibleModal: 'step1'});
+  }
+
+  renderModalContent(title, subtitle, textButton1, textButton2, source, next) {
+    return (
+      <ModalContainer>
+        <ModalTitle>{title}</ModalTitle>
+        <ModalSubtitle>{subtitle}</ModalSubtitle>
+        {source ? (
+          <ModalImageContainer>
+            <ModalImage source={source} />
+          </ModalImageContainer>
+        ) : null}
+        <ModalButtonContainer>
+          {textButton1 !== '' ? (
+            <Button onPress={() => this.setState({visibleModal: null})}>
+              <Text>{textButton1}</Text>
+            </Button>
+          ) : null}
+          <Button onPress={() => this.setState({visibleModal: next})}>
+            <Text>{textButton2}</Text>
+          </Button>
+        </ModalButtonContainer>
+      </ModalContainer>
+    );
+  }
+
   render() {
     return (
       <Container>
@@ -62,6 +106,16 @@ export default class NovaConversa extends Component {
             name="Einstein"
           />
         </Body>
+        <Modal isVisible={this.state.visibleModal === 'step1'}>
+          {this.renderModalContent(
+            'Iniciar Conversa',
+            'Clique em cima do contato de um de seus amigos da lista para iniciar uma conversa.',
+            '',
+            'Iniciar',
+            null,
+            null,
+          )}
+        </Modal>
       </Container>
     );
   }

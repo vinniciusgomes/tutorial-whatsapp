@@ -38,7 +38,7 @@ export const UserPhone = styled.Text`
   color: ${colors.white};
 `;
 
-export const UserPhoto = styled.View`
+export const UserPhoto = styled.Image`
   width: 220px;
   height: 220px;
   border-radius: 110px;
