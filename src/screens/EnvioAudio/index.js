@@ -53,7 +53,7 @@ export default class EnvioAudio extends Component {
         ) : null}
         <ModalButtonContainer>
           {textButton1 !== '' ? (
-            <Button onPress={() => this.setState({visibleModal: null})}>
+            <Button onPress={() => this.props.navigation.navigate('Main')}>
               <Text>{textButton1}</Text>
             </Button>
           ) : null}
@@ -100,7 +100,7 @@ export default class EnvioAudio extends Component {
       <Container>
         <StatusBar backgroundColor="#054a42" />
         <Header
-          onPress={() => this.props.navigation.navigate("Main")}
+          onPress={() => this.props.navigation.navigate('Main')}
           name="Anna Laura"
           avatar={this.avatar}
         />
