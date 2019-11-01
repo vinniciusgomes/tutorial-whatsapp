@@ -87,7 +87,7 @@ export default class IniciarLigacao extends Component {
         <StatusBar backgroundColor="#054a42" />
         <Header
           onPress={() => this.props.navigation.navigate('Main')}
-          name="Mina do Google"
+          name="Anna Laura"
           avatar={this.avatar}
           navigate={() => this.props.navigation.navigate('Ligacao')}
         />

@@ -100,12 +100,12 @@ export default class NovaConversa extends Component {
           <Contact
             onPress={() => this.props.navigation.navigate('EnvioMensagem')}
             avatar={require('~/assets/img/person.jpeg')}
-            name="Japinha"
+            name="Mariana Guimarães"
           />
           <Contact
             onPress={() => this.props.navigation.navigate('EnvioMensagem')}
             avatar={require('~/assets/img/person3.jpg')}
-            name="Einstein"
+            name="Rodrigo Pereira"
           />
         </Body>
         <Modal isVisible={this.state.visibleModal === 'step1'}>
