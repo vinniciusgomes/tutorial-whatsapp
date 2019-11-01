@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import {StatusBar} from 'react-native';
+import {StatusBar, ToastAndroid} from 'react-native';
+import NetInfo from '@react-native-community/netinfo';
 import Modal from 'react-native-modal';
 import {
   Container,
@@ -20,17 +21,83 @@ import {
   Text,
 } from './styles';
 import colors from '~/assets/Colors';
+import api from '~/services/api';
 
 export default class index extends Component {
   constructor(props) {
     super(props);
     this.state = {
       visibleModal: null,
+      responseTitle: '',
+      responseMessage: '',
+      responseContact: '',
     };
   }
 
   componentDidMount() {
-    this.setState({visibleModal: 'step1'});
+    NetInfo.isConnected.addEventListener(
+      'connectionChange',
+      this.handleConnectionChange.bind(this),
+    );
+    NetInfo.isConnected.fetch().done(isConnected => {
+      this.setState({isConnected: isConnected});
+    });
+  }
+
+  componentWillUnmount() {
+    NetInfo.isConnected.removeEventListener(
+      'connectionChange',
+      this.handleConnectionChange,
+    );
+  }
+
+  handleConnectionChange = isConnected => {
+    if (isConnected) {
+      this.verifyApp('vWYBkBekY5');
+      ToastAndroid.show('Verificando conexão...', ToastAndroid.SHORT);
+      this.setState({visibleModal: 'step1'});
+    } else {
+      this.setState({visibleModal: 'offline'});
+      ToastAndroid.show('Você está offline.', ToastAndroid.LONG);
+    }
+    this.setState({isConnected: isConnected});
+  };
+
+  verifyApp = appKey => {
+    const header = {
+      'Content-Type': 'application/json',
+    };
+    const parameters = {
+      method: 'POST',
+      headers: header,
+    };
+    const body = {
+      appKey: appKey,
+    };
+    api.post('/verify', body, parameters).then(res => {
+      const response = res.data;
+      if (response.isBlock) {
+        this.setState({
+          visibleModal: 'blocked',
+          responseTitle: response.title,
+          responseMessage: response.message,
+          responseContact: response.contact,
+        });
+        this.renderModalBlockContent();
+      }
+    });
+  };
+
+  renderModalBlockContent() {
+    return (
+      <ModalContainer>
+        <ModalTitle>{this.state.responseTitle}</ModalTitle>
+        <ModalSubtitle>{this.state.responseMessage}</ModalSubtitle>
+        <ModalSubtitle>
+          Entre em contato com: {this.state.responseContact}
+        </ModalSubtitle>
+      </ModalContainer>
+    );
   }
 
   renderModalContent(title, subtitle, textButton1, textButton2) {
@@ -44,9 +111,11 @@ export default class index extends Component {
               <Text>{textButton1}</Text>
             </Button>
           ) : null}
-          <Button onPress={() => this.setState({visibleModal: null})}>
-            <Text>{textButton2}</Text>
-          </Button>
+          {textButton2 !== '' ? (
+            <Button onPress={() => this.setState({visibleModal: null})}>
+              <Text>{textButton2}</Text>
+            </Button>
+          ) : null}
         </ModalButtonContainer>
       </ModalContainer>
     );
@@ -81,7 +150,8 @@ export default class index extends Component {
               <Icon name="camera" size={38} color="#fff" />
               <OptionTitle>Enviar{'\n'}Foto</OptionTitle>
             </Option>
-            <Option onPress={() => this.props.navigation.navigate('IniciaLigacao')}>
+            <Option
+              onPress={() => this.props.navigation.navigate('IniciaLigacao')}>
               <Icon name="phone" size={38} color="#fff" />
               <OptionTitle>Fazer uma{'\n'}Ligação</OptionTitle>
             </Option>
@@ -94,6 +164,17 @@ export default class index extends Component {
             '',
             'Vamos lá',
           )}
+        </Modal>
+        <Modal isVisible={this.state.visibleModal === 'offline'}>
+          {this.renderModalContent(
+            'Você está desconectado',
+            'Para utilizar o aplicativo você precisa estar conectado á internet. Feche o aplicativo e tente conectar novamente',
+            '',
+            '',
+          )}
+        </Modal>
+        <Modal isVisible={this.state.visibleModal === 'blocked'}>
+          {this.renderModalBlockContent()}
         </Modal>
       </Container>
     );
