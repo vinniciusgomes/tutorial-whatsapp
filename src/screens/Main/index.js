@@ -170,7 +170,7 @@ export default class index extends Component {
                 </Option>
                 <Option
                   onPress={() =>
-                    this.props.navigation.navigate('IniciaLigacao')
+                    this.props.navigation.navigate('IniciarLigacao')
                   }>
                   <Icon name="phone" size={38} color="#fff" />
                   <OptionTitle>Fazer uma{'\n'}Ligação</OptionTitle>
