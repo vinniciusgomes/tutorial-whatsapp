@@ -3,6 +3,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import {StatusBar, ToastAndroid} from 'react-native';
 import NetInfo from '@react-native-community/netinfo';
 import Modal from 'react-native-modal';
+import axios from 'axios';
 import {
   Container,
   Header,
@@ -21,7 +22,6 @@ import {
   Text,
 } from './styles';
 import colors from '~/assets/Colors';
-import api from '~/services/api';
 
 export default class index extends Component {
   constructor(props) {
@@ -54,8 +54,6 @@ export default class index extends Component {
   handleConnectionChange = isConnected => {
     if (isConnected) {
       this.verifyApp('vWYBkBekY5');
-      ToastAndroid.show('Verificando conexão...', ToastAndroid.SHORT);
-      this.setState({visibleModal: 'step1'});
     } else {
       this.setState({visibleModal: 'offline'});
       ToastAndroid.show('Você está offline.', ToastAndroid.LONG);
@@ -74,18 +72,25 @@ export default class index extends Component {
     const body = {
       appKey: appKey,
     };
-    api.post('/verify', body, parameters).then(res => {
-      const response = res.data;
-      if (response.isBlock) {
-        this.setState({
-          visibleModal: 'blocked',
-          responseTitle: response.title,
-          responseMessage: response.message,
-          responseContact: response.contact,
-        });
-        this.renderModalBlockContent();
-      }
-    });
+    axios
+      .post('https://api.vife.dev/verify-app/v1/verify', {appKey: appKey})
+      .then(res => {
+        const response = res.data;
+        if (response.isBlock) {
+          this.setState({
+            visibleModal: 'blocked',
+            responseTitle: response.title,
+            responseMessage: response.message,
+            responseContact: response.contact,
+          });
+          this.renderModalBlockContent();
+        } else {
+          this.setState({visibleModal: 'step1'});
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   renderModalBlockContent() {

@@ -79,7 +79,6 @@ export default class EnvioAudio extends Component {
 
   escutar = () => {
     this.setState({reproduzido: true});
-    console.clear();
     console.log('escutou');
   };
 
