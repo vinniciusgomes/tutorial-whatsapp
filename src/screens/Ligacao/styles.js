@@ -68,7 +68,7 @@ export const CallEndContainer = styled.View`
   margin-top: 30px;
 `;
 
-export const CallEnd = styled.View`
+export const CallEnd = styled.TouchableOpacity`
   width: 70px;
   height: 70px;
   border-radius: 35px;

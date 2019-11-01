@@ -72,7 +72,7 @@ export default class VisualizarFoto extends Component {
               androidStatusBarColor="#000000"
               style={{backgroundColor: 'transparent', border: 0}}>
               <Left style={{flexDirection: 'row', alignItems: 'center'}}>
-                <Button transparent>
+                <Button transparent onPress={() => this.props.navigation.navigate('EnvioFoto')}>
                   <Icon
                     style={{color: colors.white}}
                     name="ios-arrow-round-back"

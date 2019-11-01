@@ -19,7 +19,7 @@ export default class Header extends Component {
     return (
       <Container>
         <Contact>
-          <BackButton>
+          <BackButton onPress={this.props.onPress}>
             <Icon name="arrow-left" color="#fff" size={24} />
             <Avatar source={this.props.avatar} />
           </BackButton>
