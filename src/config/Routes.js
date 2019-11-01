@@ -45,11 +45,7 @@ const AppNavigator = createSwitchNavigator(
     },
   },
   {
-<<<<<<< HEAD
-    initialRouteName: 'EnvioFoto',
-=======
-    initialRouteName: 'IniciarLigacao',
->>>>>>> fc5723de1f4ce9866c7bec9ac3b43224f03bb2d7
+    initialRouteName: 'Main',
   },
 );
 

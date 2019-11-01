@@ -87,7 +87,7 @@ export default class EnvioFoto extends Component {
     return (
       <Container>
         <StatusBar backgroundColor="#054a42" />
-        <Header name="Mina do Google" avatar={this.avatar} />
+        <Header name="Anna Laura" avatar={this.avatar} />
         <Body>
           <ChatArea>
             {this.state.messages.map((message, index) => {

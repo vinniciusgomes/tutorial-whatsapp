@@ -80,7 +80,7 @@ export default class Ligacao extends Component {
             <HeaderText>LIGAÇÃO DE ÁUDIO DO WHATSAPP</HeaderText>
           </Header>
           <UserInfos>
-            <UserName>Mina do Google</UserName>
+            <UserName>Anna Laura</UserName>
             <UserPhone>ligando para +55 99 99999-9999...</UserPhone>
             <UserPhoto source={avatar} />
           </UserInfos>

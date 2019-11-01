@@ -99,11 +99,11 @@ export default class NovaConversa extends Component {
           </NewContact>
           <Contact
             avatar={require('~/assets/img/person.jpeg')}
-            name="Japinha"
+            name="Mariana Guimarães"
           />
           <Contact
             avatar={require('~/assets/img/person3.jpg')}
-            name="Einstein"
+            name="Rodrigo Pereira"
           />
         </Body>
         <Modal isVisible={this.state.visibleModal === 'step1'}>

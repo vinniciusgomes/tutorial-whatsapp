@@ -85,7 +85,7 @@ export default class IniciarLigacao extends Component {
     return (
       <Container>
         <StatusBar backgroundColor="#054a42" />
-        <Header name="Mina do Google" avatar={this.avatar} navigate={() => this.props.navigation.navigate('Ligacao')} />
+        <Header name="Anna Laura" avatar={this.avatar} navigate={() => this.props.navigation.navigate('Ligacao')} />
         <Body>
           <ChatArea>
             {this.state.messages.map((message, index) => {
