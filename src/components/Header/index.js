@@ -29,7 +29,7 @@ export default class Header extends Component {
           <ActionButton>
             <Icon name="video" color="#fff" size={26} />
           </ActionButton>
-          <ActionButton onPress={() => this.props.navigate()}>
+          <ActionButton onPress={this.props.navigate}>
             <Icon name="phone" color="#fff" size={26} />
           </ActionButton>
         </Actions>

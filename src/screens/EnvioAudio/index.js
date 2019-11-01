@@ -103,6 +103,7 @@ export default class EnvioAudio extends Component {
           onPress={() => this.props.navigation.navigate('Main')}
           name="Anna Laura"
           avatar={this.avatar}
+          navigate={() => this.props.navigation.navigate('Ligacao')}
         />
         <Body>
           <ChatArea>

@@ -64,7 +64,7 @@ export default class EnvioMensagem extends Component {
   }
 
   modalFinal() {
-    if(this.state.visibleModal == null){
+    if (this.state.visibleModal == null) {
       return this.setState({visibleModal: 'step3'});
     }
   }
@@ -86,7 +86,12 @@ export default class EnvioMensagem extends Component {
     return (
       <Container>
         <StatusBar backgroundColor="#054a42" />
-        <Header onPress={() => this.props.navigation.navigate("Main")} name="Anna Laura" avatar={this.avatar} />
+        <Header
+          onPress={() => this.props.navigation.navigate('Main')}
+          name="Anna Laura"
+          avatar={this.avatar}
+          navigate={() => this.props.navigation.navigate('Ligacao')}
+        />
         <Body>
           <ChatArea>
             {this.state.messages.map((message, index) => {
