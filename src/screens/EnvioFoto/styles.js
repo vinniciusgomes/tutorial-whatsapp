@@ -46,6 +46,7 @@ export const ModalImageContainer = styled.View`
 
 export const ModalImage = styled.Image`
   width: 100%;
+  height: 50px;
 `;
 
 export const ModalButtonContainer = styled.View`
@@ -53,4 +54,15 @@ export const ModalButtonContainer = styled.View`
   justify-content: space-around;
   align-items: center;
   margin-top: 20px;
+`;
+
+export const Button = styled.TouchableOpacity`
+  background-color: ${colors.darkTeal};
+  padding: 10px;
+  border-radius: 3px;
+`;
+
+export const Text = styled.Text`
+  color: ${colors.white};
+  font-size: 16px;
 `;

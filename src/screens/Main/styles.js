@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 import colors from '~/assets/Colors';
 
 export const Container = styled.View`
@@ -110,4 +110,11 @@ export const Button = styled.TouchableOpacity`
 export const Text = styled.Text`
   color: ${colors.white};
   font-size: 16px;
+`;
+
+export const LoadingContainer = styled.View`
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
 `;

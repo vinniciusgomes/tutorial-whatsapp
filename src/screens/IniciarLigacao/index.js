@@ -63,7 +63,7 @@ export default class IniciarLigacao extends Component {
   }
 
   modalFinal() {
-    if(this.state.visibleModal == null){
+    if (this.state.visibleModal == null) {
       return this.setState({visibleModal: 'step3'});
     }
   }
@@ -85,7 +85,12 @@ export default class IniciarLigacao extends Component {
     return (
       <Container>
         <StatusBar backgroundColor="#054a42" />
-        <Header name="Mina do Google" avatar={this.avatar} navigate={() => this.props.navigation.navigate('Ligacao')} />
+        <Header
+          onPress={() => this.props.navigation.navigate('Main')}
+          name="Mina do Google"
+          avatar={this.avatar}
+          navigate={() => this.props.navigation.navigate('Ligacao')}
+        />
         <Body>
           <ChatArea>
             {this.state.messages.map((message, index) => {
