@@ -50,7 +50,7 @@ export default class IniciarLigacao extends Component {
         ) : null}
         <ModalButtonContainer>
           {textButton1 !== '' ? (
-            <Button onPress={() => this.setState({visibleModal: null})}>
+            <Button onPress={() => this.props.navigation.navigate('Main')}>
               <Text>{textButton1}</Text>
             </Button>
           ) : null}

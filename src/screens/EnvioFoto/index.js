@@ -41,7 +41,7 @@ export default class EnvioFoto extends Component {
         ) : null}
         <ModalButtonContainer>
           {textButton1 !== '' ? (
-            <Button onPress={() => this.setState({visibleModal: null})}>
+            <Button onPress={() => this.props.navigation.navigate('Main')}>
               <Text>{textButton1}</Text>
             </Button>
           ) : null}
@@ -59,7 +59,7 @@ export default class EnvioFoto extends Component {
       this.setState({imageUri});
       this.sent(imageUri, 'image');
     }
-    if(!imageUri){
+    if (!imageUri) {
       this.setState({visibleModal: 'step1'});
     }
   }
@@ -87,7 +87,11 @@ export default class EnvioFoto extends Component {
     return (
       <Container>
         <StatusBar backgroundColor="#054a42" />
-        <Header onPress={() => this.props.navigation.navigate('Main')} name="Anna Laura" avatar={this.avatar} />
+        <Header
+          onPress={() => this.props.navigation.navigate('Main')}
+          name="Anna Laura"
+          avatar={this.avatar}
+        />
         <Body>
           <ChatArea>
             {this.state.messages.map((message, index) => {
