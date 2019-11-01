@@ -19,7 +19,7 @@ export default class Header extends Component {
     return (
       <Container>
         <Contact>
-          <BackButton>
+          <BackButton onPress={this.props.onPress}>
             <Icon name="arrow-left" color="#fff" size={24} />
             <Avatar source={this.props.avatar} />
           </BackButton>
@@ -29,7 +29,7 @@ export default class Header extends Component {
           <ActionButton>
             <Icon name="video" color="#fff" size={26} />
           </ActionButton>
-          <ActionButton>
+          <ActionButton onPress={() => this.props.navigate()}>
             <Icon name="phone" color="#fff" size={26} />
           </ActionButton>
         </Actions>
