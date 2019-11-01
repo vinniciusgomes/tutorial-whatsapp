@@ -70,7 +70,7 @@ export default class NovaConversa extends Component {
     return (
       <Container>
         <Header>
-          <BackButton>
+          <BackButton onPress={() => this.props.navigation.navigate('Main')}>
             <Icon name="arrow-left" size={24} color={colors.white} />
           </BackButton>
           <TitleContainer>
@@ -98,10 +98,12 @@ export default class NovaConversa extends Component {
             <NewContactTitle>Novo contato</NewContactTitle>
           </NewContact>
           <Contact
+            onPress={() => this.props.navigation.navigate('EnvioMensagem')}
             avatar={require('~/assets/img/person.jpeg')}
             name="Japinha"
           />
           <Contact
+            onPress={() => this.props.navigation.navigate('EnvioMensagem')}
             avatar={require('~/assets/img/person3.jpg')}
             name="Einstein"
           />

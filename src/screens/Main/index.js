@@ -81,7 +81,7 @@ export default class index extends Component {
               <Icon name="camera" size={38} color="#fff" />
               <OptionTitle>Enviar{'\n'}Foto</OptionTitle>
             </Option>
-            <Option onPress={() => this.props.navigation.navigate('IniciaLigacao')}>
+            <Option onPress={() => this.props.navigation.navigate('IniciarLigacao')}>
               <Icon name="phone" size={38} color="#fff" />
               <OptionTitle>Fazer uma{'\n'}Ligação</OptionTitle>
             </Option>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StatusBar} from 'react-native';
+import {StatusBar, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Modal from 'react-native-modal';
 import {
@@ -71,12 +71,15 @@ export default class Ligacao extends Component {
         <Container>
           <StatusBar barStyle="light-content" />
           <Header>
-            <Icon
-              size={30}
-              style={{marginLeft: -20}}
-              color="white"
-              name="navigate-before"
-            />
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('IniciarLigacao')}>
+              <Icon
+                size={30}
+                style={{marginLeft: -20}}
+                color="white"
+                name="navigate-before"
+              />
+            </TouchableOpacity>
             <HeaderText>LIGAÇÃO DE ÁUDIO DO WHATSAPP</HeaderText>
           </Header>
           <UserInfos>
@@ -99,7 +102,8 @@ export default class Ligacao extends Component {
             </ActionButton>
           </ActionsButtons>
           <CallEndContainer>
-            <CallEnd>
+            <CallEnd
+              onPress={() => this.props.navigation.navigate('IniciarLigacao')}>
               <Icon size={40} color="white" name="call-end" />
             </CallEnd>
           </CallEndContainer>
