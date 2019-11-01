@@ -79,7 +79,6 @@ export default class EnvioAudio extends Component {
 
   escutar = () => {
     this.setState({reproduzido: true});
-    console.clear();
     console.log('escutou');
   };
 
@@ -100,7 +99,11 @@ export default class EnvioAudio extends Component {
     return (
       <Container>
         <StatusBar backgroundColor="#054a42" />
-        <Header name="Mina do Google" avatar={this.avatar} />
+        <Header
+          onPress={() => this.props.navigation.navigate("Main")}
+          name="Mina do Google"
+          avatar={this.avatar}
+        />
         <Body>
           <ChatArea>
             {this.state.messages.map((message, index) => {

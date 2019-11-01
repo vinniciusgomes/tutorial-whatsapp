@@ -8,7 +8,7 @@ export default class Contact extends Component {
   }
   render() {
     return (
-      <Container>
+      <Container onPress={this.props.onPress}>
         <Avatar source={this.props.avatar} />
         <Name>{this.props.name}</Name>
       </Container>
