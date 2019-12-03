@@ -26,7 +26,7 @@ export default class index extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      visibleModal: null,
+      visibleModal: 'step1',
       loading: false,
       responseTitle: '',
       responseMessage: '',
@@ -109,14 +109,6 @@ export default class index extends Component {
             'Escolha uma das opções e aprenda como enviar mensagens, áudios e fotos a um amigo ou até mesmo realizar uma ligação.',
             '',
             'Vamos lá',
-          )}
-        </Modal>
-        <Modal isVisible={this.state.visibleModal === 'offline'}>
-          {this.renderModalContent(
-            'Você está desconectado',
-            'Para utilizar o aplicativo você precisa estar conectado á internet. Feche o aplicativo e tente conectar novamente',
-            '',
-            '',
           )}
         </Modal>
         <Modal isVisible={this.state.visibleModal === 'blocked'}>
